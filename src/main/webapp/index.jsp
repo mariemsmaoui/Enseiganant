@@ -110,7 +110,7 @@
 					<li class="item"><a href="EnseignantController"
 						class="link flex"> <i class="bx bx-home-alt"></i> <span>Enseigant</span>
 					</a></li>
-					<li class="item"><a href="#" class="link flex"> <i
+					<li class="item"><a href="autorisation.jsp" class="link flex"> <i
 							class="bx bx-grid-alt"></i> <span>Autorisation</span>
 					</a></li>
 				</ul>
