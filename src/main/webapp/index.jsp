@@ -14,7 +14,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Hoverable Sidebar Menu HTML CSS & JavaScript</title>
+<title>Gestion Enseignant</title>
 <link rel="stylesheet" href="css/style.css" />
 <!-- Boxicons CSS -->
 <link flex href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -60,7 +60,7 @@
 	});
 	$(document).ready(function() {
 		// Add click event listener to the edit button
-		$(".editBtn").on("click", function() {
+		$(".edit").on("click", function() {
 			// Get the enseignant's information from the table row or any other source
 			var enseignantId = $(this).data("id");
 			var nom = $(this).data("nom");
@@ -81,7 +81,7 @@
 	});
 	$(document).ready(function() {
 		// Add click event listener to the edit button
-		$(".deleteBtn").on("click", function() {
+		$(".delete").on("click", function() {
 			// Get the enseignant's information from the table row or any other source
 			var enseignantId = $(this).data("id");
 			// Set the values in the edit form fields
@@ -94,9 +94,9 @@
 <body>
 	<nav class="sidebar locked">
 		<div class="logo_items flex">
-			<span class="nav_image"> <img src="images/logo.png"
+			<span class="nav_image"> <img src="images/logo.jpg"
 				alt="logo_img" />
-			</span> <span class="logo_name">Dashboard</span> <i class="bx bx-lock-alt"
+			</span> <span class="logo_name">Admin</span> <i class="bx bx-lock-alt"
 				id="lock-icon" title="Unlock Sidebar"></i> <i class="bx bx-x"
 				id="sidebar-close"></i>
 		</div>
@@ -110,7 +110,7 @@
 					<li class="item"><a href="EnseignantController"
 						class="link flex"> <i class="bx bx-home-alt"></i> <span>Enseigant</span>
 					</a></li>
-					<li class="item"><a href="autorisation.jsp" class="link flex"> <i
+					<li class="item"><a href="AutorisationController" class="link flex"> <i
 							class="bx bx-grid-alt"></i> <span>Autorisation</span>
 					</a></li>
 				</ul>
@@ -120,24 +120,14 @@
 
 			</div>
 
-			<div class="sidebar_profile flex">
-				<span class="nav_image"> <img src="images/profile.jpg"
-					alt="logo_img" />
-				</span>
-				<div class="data_text">
-					<span class="name">David Oliva</span> <span class="email">david@gmail.com</span>
-				</div>
-			</div>
+			
 		</div>
 	</nav>
 
 	<!-- Navbar -->
 	<nav class="navbar flex">
 		<i class="bx bx-menu" id="sidebar-open"></i> <input type="text"
-			placeholder="Search..." class="search_box" /> <span
-			class="nav_image"> <img src="images/profile.jpg"
-			alt="logo_img" />
-		</span>
+			placeholder="Search..." class="search_box" /> 
 	</nav>
 	<div class="container-xl">
 		<div class="table-responsive center-table">
@@ -192,14 +182,14 @@
 								<td>${enseignant.getCin()}</td>
 								<td>${enseignant.getTelephone()}</td>
 
-								<td><a href="#editEnseignantModal" class="editBtn"
+								<td><a href="#editEnseignantModal" class="edit"
 									data-toggle="modal" data-id="${enseignant.getIdEnseignant()}"
 									data-nom="${enseignant.getNom()}"
 									data-email="${enseignant.getEmail()}"
 									data-cin="${enseignant.getCin()}"
 									data-telephone="${enseignant.getTelephone()}"> <i
 										class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-								</a> <a href="#deleteEnseignantModal" class="deleteBtn"
+								</a> <a href="#deleteEnseignantModal" class="delete"
 									data-toggle="modal" data-id="${enseignant.getIdEnseignant()}"> <i class="material-icons"
 										data-toggle="tooltip" title="Delete">&#xE872;</i>
 								</a></td>
@@ -210,16 +200,16 @@
 
 				<div class="clearfix">
 					<div class="hint-text">
-						Showing <b>5</b> out of <b>25</b> entries
+						Afficher<b>5</b> de<b>25</b> entree
 					</div>
 					<ul class="pagination">
-						<li class="page-item disabled"><a href="#">Previous</a></li>
+						<li class="page-item disabled"><a href="#">Precedent</a></li>
 						<li class="page-item"><a href="#" class="page-link">1</a></li>
 						<li class="page-item"><a href="#" class="page-link">2</a></li>
 						<li class="page-item active"><a href="#" class="page-link">3</a></li>
 						<li class="page-item"><a href="#" class="page-link">4</a></li>
 						<li class="page-item"><a href="#" class="page-link">5</a></li>
-						<li class="page-item"><a href="#" class="page-link">Next</a></li>
+						<li class="page-item"><a href="#" class="page-link">Suivant</a></li>
 					</ul>
 				</div>
 			</div>
@@ -239,19 +229,19 @@
 					<div class="modal-body">
 						<!-- ID field hidden -->
 						<div class="form-group">
-							<label>Nom</label> <input type="text" name="nom"
+							<label>Nom</label> <input type="text" name="nom" placeholder="enter votre nom"
 								class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Email</label> <input type="email" name="email"
+							<label>Email</label> <input type="email" name="email" placeholder="enter votre email"
 								class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>CIN</label> <input type="text" name="cin"
+							<label>CIN</label> <input type="text" name="cin" placeholder="enter votre cin"
 								class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Telephone</label> <input type="text" name="telephone"
+							<label>Telephone</label> <input type="text" name="telephone" placeholder="enter votre telephone"
 								class="form-control" required>
 						</div>
 					</div>
@@ -317,9 +307,9 @@
 					</div>
 					<div class="modal-body">
 						<input type="hidden" name="id" id="deleteEnseignantId">
-						<p>Are you sure you want to delete these Records?</p>
+						<p>Voulez-vous vraiment supprimer ces enregistrements ?</p>
 						<p class="text-warning">
-							<small>This action cannot be undone.</small>
+							<small>Cette action ne peut pas être annulée.</small>
 						</p>
 					</div>
 					<div class="modal-footer">

@@ -14,7 +14,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Hoverable Sidebar Menu HTML CSS & JavaScript</title>
+<title>Gestion Enseignant </title>
 <link rel="stylesheet" href="css/style.css" />
 <!-- Boxicons CSS -->
 <link flex href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -32,14 +32,13 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/autorisation.css">
 </head>
 <body>
-	<nav class="sidebar locked">
+		<nav class="sidebar locked">
 		<div class="logo_items flex">
-			<span class="nav_image"> <img src="images/logo.png"
+			<span class="nav_image"> <img src="images/logo.jpg"
 				alt="logo_img" />
-			</span> <span class="logo_name">Dashboard</span> <i class="bx bx-lock-alt"
+			</span> <span class="logo_name">Admin</span> <i class="bx bx-lock-alt"
 				id="lock-icon" title="Unlock Sidebar"></i> <i class="bx bx-x"
 				id="sidebar-close"></i>
 		</div>
@@ -53,8 +52,8 @@
 					<li class="item"><a href="EnseignantController"
 						class="link flex"> <i class="bx bx-home-alt"></i> <span>Enseigant</span>
 					</a></li>
-					<li class="item"><a href="autorisation.jsp" class="link flex">
-							<i class="bx bx-grid-alt"></i> <span>Autorisation</span>
+					<li class="item"><a href="AutorisationController" class="link flex"> <i
+							class="bx bx-grid-alt"></i> <span>Autorisation</span>
 					</a></li>
 				</ul>
 
@@ -63,40 +62,27 @@
 
 			</div>
 
-			<div class="sidebar_profile flex">
-				<span class="nav_image"> <img src="images/profile.jpg"
-					alt="logo_img" />
-				</span>
-				<div class="data_text">
-					<span class="name">David Oliva</span> <span class="email">david@gmail.com</span>
-				</div>
-			</div>
+			
 		</div>
 	</nav>
 
-	<div class="container-md justify-content-center">
-	
-		<form action="AutorisationController" method="POST">
+	<div class="container-md d-flex flex-column justify-content-end align-items-center" style="min-height: 50vh;">
+    <form action="AutorisationController" method="POST">
+        <div class="form-group col-md-20">
+            <label for="selectProfessor">Choisir un enseignant</label>
+            <select class="form-control" id="selectProfessor" name="id" required>
+                <option value="0">Choisir Enseignant</option>
+                <c:forEach items="${requestScope.enseignants}" var="enseignant">
+                    <option value="${enseignant.idEnseignant}">${enseignant.nom}</option>
+                </c:forEach>
+            </select>
+        </div>
+        <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50"></i> Generer Autorisation
+        </button>
+    </form>
+</div>
 
-
-			<div class="form-group col-md-4">
-				<label for="selectProfessor">Select a professor to generate
-					document</label> <select class="form-control" id="selectProfessor"
-					name="id" required>
-					<option value="0">Select Professor</option>
-					<c:forEach items="${requestScope.enseignants}" var="enseignant">
-						<option value="${enseignant.idEnseignant}">${enseignant.nom}
-						</option>
-					</c:forEach>
-				</select>
-			</div>
-			<button type="submit"
-				class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-				<i class="fas fa-download fa-sm text-white-50"></i> Generate
-				Authorization
-			</button>
-		</form>
-	</div>
 
 
 </body>

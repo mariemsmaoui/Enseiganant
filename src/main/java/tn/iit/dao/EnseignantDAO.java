@@ -36,7 +36,7 @@ public class EnseignantDAO {
                 int telephone = rs.getInt("telephone");
                 Enseignant enseignant = new Enseignant(idEnseignant, nom, email, cin, telephone);
              // Set the authorizations for the enseignant
-                enseignant.setAuthorisations(getAuthorisationsForEnseignant(idEnseignant));
+               // enseignant.setAuthorisations(getAuthorisationsForEnseignant(idEnseignant));
                 enseignants.add(enseignant);     
             }
           
